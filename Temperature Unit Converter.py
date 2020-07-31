@@ -138,26 +138,13 @@ def convert(current, new, num):
 def unit(current):
     unit1 = ""
     unit2 = ""
-    if current in kelv2:
-        unit1 = kelv[-1]
-        unit2 = kelv[0]
-        return unit1, unit2
-    elif current in cels2:
-        unit1 = cels[-1]
-        unit2 = cels[0]
-        return unit1, unit2
-    elif current in fahren2:
-        unit1 = fahren[-1]
-        unit2 = fahren[0]
-        return unit1, unit2
-    elif current in rank2:
-        unit1 = rank[-1]
-        unit2 = rank[0]
-        return unit1, unit2
-    elif current in reau2:
-        unit1 = reau[-1]
-        unit2 = reau[0]
-        return unit1, unit2
+    current = current[0].upper() + current[1:]
+    for u in units:
+        if current in u:
+            unit1 = u[-1]
+            unit2 = u[0]
+            break
+    return unit1, unit2
 
 def main(current, new, temp1, temp2):
     current, cUnit = unit(currentUnit.lower())
